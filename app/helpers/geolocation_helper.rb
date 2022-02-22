@@ -35,9 +35,9 @@ module GeolocationHelper
 
     def self.get_nearest_points(point, points)
       nearest = Array.new
-      points.each do |bike_point|
-        bike_point[:distance] = get_distance([to_radian(point[0]), to_radian(point[1])],
-                          [to_radian(bike_point[:lat]),to_radian(bike_point[:long])])
+      points.each do |array_point|
+        array_point[:distance] = get_distance([to_radian(point[0]), to_radian(point[1])],
+                          [to_radian(array_point[:lat]),to_radian(array_point[:long])])
       end
       points.sort_by{|point| [point.distance]}
     end
