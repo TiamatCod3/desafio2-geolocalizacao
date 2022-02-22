@@ -45,6 +45,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+#Rest client for API requests
+gem 'rest-client', '~> 2.1'
+gem 'open_street_map'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
