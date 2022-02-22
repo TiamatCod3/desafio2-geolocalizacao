@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bike points</h1>
+
+<div class="form-content">
+  <%= form_tag(bike_points_path(@bike_point), method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag("Buscar") %>
+  <% end %>
+</div>
+
+<%= @point %>
+
+<div id="bike_points">
+  <% @bike_points.each do |bike_point| %>
+    <%= render bike_point %>
+    <p>
+      <%= link_to "Show this bike point", bike_point %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bike point", new_bike_point_path %>

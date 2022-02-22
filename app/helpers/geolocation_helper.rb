@@ -4,7 +4,7 @@ module GeolocationHelper
     def self.search_street(address)
       client = OpenStreetMap::Client.new
       response = client.search(q: address, format: 'json', addressdetails: '1')
-      return response[0]['lat'].to_f, response[0]['long'].to_f
+      return [response[0]['lat'].to_f, response[0]['lon'].to_f]
     
     end 
 
