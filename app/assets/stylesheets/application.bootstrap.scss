@@ -2,8 +2,8 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 
 div.content{
-  background: rgba(236, 112, 00, 0.3);
-  color: darkslategrey;
+  background: rgba(236, 112, 00, 0.9);
+  color: rgb(235, 255, 255);
   margin: 0 auto;
   max-width: 400px;
   padding:5px 25px;
@@ -37,4 +37,8 @@ div.gmap_canvas {
   border-radius: 15px;
   height:250px;
   width:300px;
+}
+
+.accordion-body{
+  color:darkslategray;
 }
