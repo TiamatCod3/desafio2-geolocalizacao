@@ -7,4 +7,9 @@ class BikePoint < ApplicationRecord
       point 
     end
   end
+
+  def self.get_nearest_points(point)
+    points = BikePoint.all
+    GeolocationHelper::Geolocation.get_nearest_points(point, points.to_a)
+  end
 end

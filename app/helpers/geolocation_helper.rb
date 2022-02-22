@@ -2,11 +2,16 @@ module GeolocationHelper
   #https://www.geeksforgeeks.org/program-distance-two-points-earth/#:~:text=For%20this%20divide%20the%20values,is%20the%20radius%20of%20Earth.
   class Geolocation
     def self.search_street(address)
+      # debugger
+
       client = OpenStreetMap::Client.new
       response = client.search(q: address, format: 'json', addressdetails: '1')
-      return [response[0]['lat'].to_f, response[0]['lon'].to_f]
-    
-    end 
+      if response.empty?
+        response
+      else 
+        [response[0]['lat'].to_f, response[0]['lon'].to_f]
+      end
+    end
 
     def self.get_distance(pointA, pointB)
       lat1 = to_radian(pointA[0])
@@ -27,6 +32,14 @@ module GeolocationHelper
     def self.to_radian(point)
       point / (180/Math::PI)
     end
-  end
 
+    def self.get_nearest_points(point, points)
+      nearest = Array.new
+      points.each do |bike_point|
+        bike_point[:distance] = get_distance([to_radian(point[0]), to_radian(point[1])],
+                          [to_radian(bike_point[:lat]),to_radian(bike_point[:long])])
+      end
+      points.sort_by{|point| [point.distance]}
+    end
+  end
 end

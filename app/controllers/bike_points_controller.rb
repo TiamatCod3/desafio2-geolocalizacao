@@ -3,8 +3,15 @@ class BikePointsController < ApplicationController
 
   # GET /bike_points or /bike_points.json
   def index
-    @bike_points = BikePoint.all
     @point = BikePoint.search_address(params[:search])
+    if @point.empty? 
+      @point = [-22.911091052609546, -43.205639965029214]
+      if !params[:search].nil?
+        flash[:notice] = "Local não encontrado"
+      end
+    end
+
+    @bike_points = BikePoint.get_nearest_points(@point)
   end
 
   # GET /bike_points/1 or /bike_points/1.json
@@ -12,7 +19,6 @@ class BikePointsController < ApplicationController
   end
 
   def search
-
   end
 
   # GET /bike_points/new
