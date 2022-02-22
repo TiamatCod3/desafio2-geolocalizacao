@@ -6,7 +6,7 @@ div.content{
   color: darkslategrey;
   margin: 0 auto;
   max-width: 400px;
-  padding:25px;
+  padding:5px 25px;
   border-radius: 15px;
   box-shadow: 2px 2px 10px 10px rgba($color: #ec7000, $alpha: 0.1);
 }
@@ -23,7 +23,7 @@ div.header .form-content{
 div.mapouter{
   position:relative;
   text-align:right;
-  margin: 20px auto;
+  margin: 0px auto;
   border:#ec7000;
   border-radius: 5px;
   height:250px;
