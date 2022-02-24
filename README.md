@@ -1,24 +1,15 @@
-# README
+# Bike Location
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+O app foi publicado no site: https://bike-geolocation.herokuapp.com/
 
-Things you may want to cover:
+Foi criada a classe BikePoint que recebeu os dados da API bike rio. 
 
-* Ruby version
+Foi utilizada a fórmula do site:
+https://www.geeksforgeeks.org/program-distance-two-points-earth/#:~:text=For%20this%20divide%20the%20values,is%20the%20radius%20of%20Earth.
 
-* System dependencies
+Foi criado o campo de distância para que seja retornada uma array com os pontos mais próximos, com os respectivos objetos associados para renderização no aplicativo.
 
-* Configuration
+Para processamento das distâncias foi criada uma classe Geolocation, desacoplada do modelo e presente no módulo GeolocationHelper.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A API do openstreemap foi consumida por meio da gem específica que possuí as mesmas parametrizações de consulta http.
+Fonte: https://github.com/WebGents/open_street_map
